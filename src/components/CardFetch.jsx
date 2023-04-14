@@ -6,22 +6,25 @@ function CardFetch() {
 
     const [respuesta, setRespuesta] = useState([])
 
-    useEffect(()=>{
-        const execute = async () => {
-            const json = await fetch('https://swapi.dev/api/people')
-            if (!json.ok){
-                return alert(`Error al hacer la peticion`);
-            }
-            const data = await json.json()
-            console.log(data.results)
-            setRespuesta(data.results)
-        }
-        execute()
-    },[])
+  const execute = async () => {
+      const json = await fetch('https://swapi.dev/api/people')
+      if (!json.ok){
+          return alert(`Error al hacer la peticion`);
+      }
+      const data = await json.json()
+      console.log(data.results)
+      setRespuesta(data.results)
+  }
+
+  useEffect(() => {
+      console.log("johnson")
+    }, [respuesta])
   return (
     <>
+    <button></button>
     {respuesta.map((respuesta2,key) => {
-        return (<>
+        return (
+        <>
             <div key={"respuesta" + key} className="card col-lg-4 col-md-6  align-items-stretch mt-4 mt-lg-0">
                 <div className='card-body'>
                     <div className="icon-box">
