@@ -1,14 +1,15 @@
 import React from 'react'
-import Mensaje from '../components/Mensaje'
-import Padre from '../components/Padre'
 import CardFetch from '../components/CardFetch'
+import { useState } from 'react'
 
 function Home() {
+
+  const [show, setShow] = useState(false)
+
   return (
-    <div>
-      <div className='row'>
-        <CardFetch/>
-      </div>
+    <div className='row'>
+      <button type='button' hidden={show} onClick={() => {setShow(true)}}>Mostrar Cartas</button>
+      { show && <CardFetch/>}
     </div>
   )
 }
